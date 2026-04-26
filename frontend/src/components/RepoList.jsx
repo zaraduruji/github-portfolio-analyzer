@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import RepoModal from './RepoModal';
 
 const DEVICON = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/';
 
@@ -50,13 +51,14 @@ function formatDate(iso) {
   return new Date(iso).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
 }
 
-function RepoCard({ repo }) {
+function RepoCard({ repo, onClick }) {
   const { name, description, language, stargazers_count, forks_count, updated_at, html_url } = repo;
 
   return (
-    <div className="repo-card">
+    <div className="repo-card" onClick={onClick}>
       <div className="repo-header">
-        <a href={html_url} target="_blank" rel="noreferrer" className="repo-name">{name}</a>
+        <a href={html_url} target="_blank" rel="noreferrer" className="repo-name"
+          onClick={e => e.stopPropagation()}>{name}</a>
         {language && <LangBadge language={language} />}
       </div>
       <p className="repo-description">
@@ -86,8 +88,9 @@ function buildTabs(repos) {
 }
 
 function RepoList({ repos }) {
-  const [activeTab, setActiveTab] = useState('all');
-  const [search, setSearch] = useState('');
+  const [activeTab, setActiveTab]     = useState('all');
+  const [search, setSearch]           = useState('');
+  const [selectedRepo, setSelectedRepo] = useState(null);
 
   const tabs = buildTabs(repos);
 
@@ -133,8 +136,14 @@ function RepoList({ repos }) {
         <p className="repo-empty">No repositories match your filters.</p>
       ) : (
         <div className="repo-grid">
-          {filtered.map(repo => <RepoCard key={repo.id} repo={repo} />)}
+          {filtered.map(repo => (
+            <RepoCard key={repo.id} repo={repo} onClick={() => setSelectedRepo(repo)} />
+          ))}
         </div>
+      )}
+
+      {selectedRepo && (
+        <RepoModal repo={selectedRepo} onClose={() => setSelectedRepo(null)} />
       )}
     </section>
   );
