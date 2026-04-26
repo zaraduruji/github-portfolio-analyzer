@@ -92,9 +92,7 @@ function App() {
         )}
       </main>
 
-      <footer className="footer">
-        Built with React &amp; Recharts · Powered by GitHub API
-      </footer>
+      <footer className="footer">GitHub Portfolio Analyzer</footer>
     </div>
   );
 }
