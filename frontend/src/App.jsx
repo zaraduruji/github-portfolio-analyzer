@@ -22,7 +22,8 @@ function App() {
     setData(null);
 
     try {
-      const res = await axios.get(`http://localhost:3001/api/analyze?username=${encodeURIComponent(trimmed)}`);
+      const res = await axios.get(`https://github-portfolio-analyzer-backend.onrender.com/api/analyze?username=${encodeURIComponent(trimmed)}`);
+setData(res.data);
       setData(res.data);
     } catch (err) {
       if (err.response?.status === 404) {

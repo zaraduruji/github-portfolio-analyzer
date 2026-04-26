@@ -36,7 +36,6 @@ function RepoModal({ repo, onClose }) {
   const [owner, repoName] = new URL(repo.html_url).pathname.slice(1).split('/');
   const apiBase = `https://api.github.com/repos/${owner}/${repoName}`;
 
-  // Lock body scroll + ESC to close
   useEffect(() => {
     const prev = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
@@ -48,7 +47,6 @@ function RepoModal({ repo, onClose }) {
     };
   }, [onClose]);
 
-  // Fetch details, languages, readme in parallel
   useEffect(() => {
     setLoading(true);
     Promise.all([
@@ -87,7 +85,6 @@ function RepoModal({ repo, onClose }) {
           </div>
         ) : (
           <>
-            {/* Header */}
             <div className="modal-header">
               <div className="modal-title-row">
                 {meta && (
@@ -110,12 +107,10 @@ function RepoModal({ repo, onClose }) {
               )}
             </div>
 
-            {/* Description */}
             {repo.description && (
               <p className="modal-description">{repo.description}</p>
             )}
 
-            {/* Stats row */}
             <div className="modal-stats">
               <div className="modal-stat">
                 <span className="modal-stat-icon">⭐</span>
@@ -143,7 +138,6 @@ function RepoModal({ repo, onClose }) {
               )}
             </div>
 
-            {/* Topics */}
             {details?.topics?.length > 0 && (
               <div className="modal-topics">
                 {details.topics.map(t => (
@@ -152,7 +146,6 @@ function RepoModal({ repo, onClose }) {
               </div>
             )}
 
-            {/* Language breakdown bar */}
             {langEntries.length > 0 && (
               <div className="modal-lang-section">
                 <div className="modal-lang-bar">
@@ -183,13 +176,11 @@ function RepoModal({ repo, onClose }) {
               </div>
             )}
 
-            {/* Dates */}
             <div className="modal-dates">
               {details?.created_at && <span>📅 Created {fmt(details.created_at)}</span>}
               <span>🔄 Updated {fmt(repo.updated_at)}</span>
             </div>
 
-            {/* README preview */}
             {readme && (
               <div className="modal-readme">
                 <div className="modal-readme-label">README preview</div>
@@ -197,7 +188,6 @@ function RepoModal({ repo, onClose }) {
               </div>
             )}
 
-            {/* CTA */}
             <a href={repo.html_url} target="_blank" rel="noreferrer" className="modal-cta">
               View on GitHub ↗
             </a>

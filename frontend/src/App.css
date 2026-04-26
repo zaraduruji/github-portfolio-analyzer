@@ -1,4 +1,3 @@
-/* ── Reset & base ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { overflow-x: hidden; }
@@ -14,7 +13,6 @@ body {
 
 a { text-decoration: none; }
 
-/* ── App shell ── */
 .app {
   display: flex;
   flex-direction: column;
@@ -23,7 +21,6 @@ a { text-decoration: none; }
   overflow-x: hidden;
 }
 
-/* ── Hero / header ── */
 .hero {
   background: radial-gradient(ellipse at 50% 0%, rgba(170, 59, 255, 0.3) 0%, #0d0d14 70%);
   padding: clamp(28px, 6vw, 56px) clamp(16px, 4vw, 40px) clamp(36px, 7vw, 64px);
@@ -65,7 +62,6 @@ a { text-decoration: none; }
   margin-bottom: clamp(20px, 4vw, 32px);
 }
 
-/* ── Search bar ── */
 .search-bar {
   display: flex;
   align-items: center;
@@ -128,7 +124,6 @@ a { text-decoration: none; }
   animation: spin 0.7s linear infinite;
 }
 
-/* ── Main content ── */
 .main {
   flex: 1;
   width: 100%;
@@ -136,7 +131,6 @@ a { text-decoration: none; }
   background: transparent;
 }
 
-/* ── Loading state ── */
 .loading-state {
   text-align: center;
   padding: clamp(40px, 8vw, 80px) 0;
@@ -157,7 +151,6 @@ a { text-decoration: none; }
 
 .loading-text { color: #a0a0b0; font-size: clamp(0.875rem, 1.5vw, 1rem); }
 
-/* ── Error banner ── */
 .error-banner {
   background: rgba(234, 67, 53, 0.12);
   color: #ff7b72;
@@ -171,7 +164,6 @@ a { text-decoration: none; }
   gap: 8px;
 }
 
-/* ── Empty state ── */
 .empty-state {
   text-align: center;
   padding: clamp(60px, 10vw, 100px) 0;
@@ -180,7 +172,6 @@ a { text-decoration: none; }
 
 .empty-icon { font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 12px; }
 
-/* ── Glass surface (shared) ── */
 .glass {
   background: rgba(13, 13, 20, 0.45);
   backdrop-filter: blur(20px);
@@ -190,7 +181,6 @@ a { text-decoration: none; }
   border-radius: 16px;
 }
 
-/* ── Section wrapper ── */
 .section { margin-bottom: clamp(24px, 4vw, 40px); }
 
 .section-title {
@@ -213,7 +203,6 @@ a { text-decoration: none; }
   border: 1px solid rgba(170, 59, 255, 0.3);
 }
 
-/* ── Profile card ── */
 .profile-card {
   background: rgba(13, 13, 20, 0.45);
   backdrop-filter: blur(20px);
@@ -277,7 +266,6 @@ a { text-decoration: none; }
   letter-spacing: 0.5px;
 }
 
-/* ── Insights grid: 4 → 2 → 1 ── */
 .insights-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -322,7 +310,6 @@ a { text-decoration: none; }
 .link-value { color: #c084fc; }
 .link-value:hover { text-decoration: underline; color: #aa3bff; }
 
-/* ── Language chart ── */
 .chart-container {
   background: rgba(13, 13, 20, 0.45);
   backdrop-filter: blur(20px);
@@ -351,7 +338,6 @@ a { text-decoration: none; }
 .legend-label { font-size: clamp(0.75rem, 1.2vw, 0.82rem); color: #d1d5db; }
 .legend-pct   { font-size: clamp(0.7rem, 1.1vw, 0.78rem); color: #a0a0b0; }
 
-/* ── Repo search ── */
 .repo-search {
   width: 100%;
   background: #1a1a2e;
@@ -368,7 +354,6 @@ a { text-decoration: none; }
 .repo-search::placeholder { color: #a0a0b0; }
 .repo-search:focus { border-color: #aa3bff; box-shadow: 0 0 0 3px rgba(170, 59, 255, 0.15); }
 
-/* ── Language tabs ── */
 .lang-tabs {
   display: flex;
   flex-wrap: wrap;
@@ -400,7 +385,6 @@ a { text-decoration: none; }
 .tab-count { background: rgba(255, 255, 255, 0.15); border-radius: 50px; font-size: 0.7rem; padding: 1px 6px; }
 .lang-tab.active .tab-count { background: rgba(255, 255, 255, 0.25); }
 
-/* ── Repo grid: 4 → 3 → 2 → 1 ── */
 .repo-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -500,7 +484,6 @@ a { text-decoration: none; }
   font-size: clamp(0.875rem, 1.3vw, 0.95rem);
 }
 
-/* ── Modal ── */
 @keyframes modalIn {
   from { opacity: 0; transform: scale(0.96) translateY(12px); }
   to   { opacity: 1; transform: scale(1)    translateY(0); }
@@ -688,7 +671,6 @@ a { text-decoration: none; }
 }
 .modal-cta:hover { opacity: 0.88; transform: scale(1.02); }
 
-/* ── Results wrapper ── */
 .results { animation: fadeIn 0.35s ease; }
 
 @keyframes fadeIn {
@@ -696,7 +678,6 @@ a { text-decoration: none; }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Footer ── */
 .footer {
   text-align: center;
   padding: clamp(16px, 3vw, 24px);
@@ -706,29 +687,18 @@ a { text-decoration: none; }
   background: #0d0d14;
 }
 
-/* ─────────────────────────────────────
-   RESPONSIVE BREAKPOINTS
-   fluid clamp() handles the in-between;
-   breakpoints only flip major layouts.
-───────────────────────────────────── */
-
-/* 1280px → 3-col repo grid */
 @media (max-width: 1279px) {
   .repo-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
-/* 1024px → 2-col repo grid, insights stay 4 */
 @media (max-width: 1023px) {
   .repo-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* 900px → insights 2×2 */
 @media (max-width: 900px) {
   .insights-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* 768px → profile stacks vertically, tabs scroll horizontally,
-           modal becomes full-width bottom sheet */
 @media (max-width: 768px) {
   .profile-card {
     flex-direction: column;
@@ -737,7 +707,6 @@ a { text-decoration: none; }
   }
   .profile-stats { justify-content: center; }
 
-  /* Tabs: single scrollable row — no wrapping, no overflow clipping */
   .lang-tabs {
     flex-wrap: nowrap;
     overflow-x: auto;
@@ -748,7 +717,6 @@ a { text-decoration: none; }
   .lang-tabs::-webkit-scrollbar { display: none; }
   .lang-tab { flex-shrink: 0; }
 
-  /* Modal full-width bottom sheet */
   .modal-overlay {
     padding: 0;
     align-items: flex-end;
@@ -762,7 +730,6 @@ a { text-decoration: none; }
   .modal-header { padding-right: 52px; }
 }
 
-/* 480px → 1-col repo grid, 1-col insights */
 @media (max-width: 480px) {
   .repo-grid     { grid-template-columns: 1fr; }
   .insights-grid { grid-template-columns: 1fr; }
