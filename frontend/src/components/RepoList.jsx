@@ -19,8 +19,14 @@ const LANG_COLORS = {
   Dart: '#00B4AB',
 };
 
+const LANG_TEXT = { JavaScript: '#1a1a1a', Rust: '#1a1a1a' };
+
 function langColor(lang) {
-  return LANG_COLORS[lang] || '#4285F4';
+  return LANG_COLORS[lang] || '#7c3aed';
+}
+
+function langText(lang) {
+  return LANG_TEXT[lang] || '#fff';
 }
 
 function formatDate(iso) {
@@ -41,7 +47,7 @@ function RepoCard({ repo }) {
           {name}
         </a>
         {language && (
-          <span className="lang-badge" style={{ backgroundColor: langColor(language) }}>
+          <span className="lang-badge" style={{ backgroundColor: langColor(language), color: langText(language) }}>
             {language}
           </span>
         )}

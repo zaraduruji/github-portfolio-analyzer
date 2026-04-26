@@ -1,6 +1,6 @@
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-const COLORS = ['#4285F4', '#EA4335', '#FBBC05', '#34A853', '#AB47BC', '#00ACC1', '#FF7043', '#8D6E63', '#5C6BC0', '#26A69A'];
+const COLORS = ['#aa3bff', '#7c3aed', '#9d4edd', '#c084fc', '#e879f9', '#6d28d9', '#a855f7', '#d946ef', '#8b5cf6', '#c026d3'];
 
 function renderLabel({ name, percent }) {
   if (percent < 0.05) return null;

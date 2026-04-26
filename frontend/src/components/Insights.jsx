@@ -22,26 +22,26 @@ function Insights({ insights }) {
       <h2 className="section-title">Insights</h2>
       <div className="insights-grid">
         <StatCard
-          color="#4285F4"
+          color="#aa3bff"
           icon="💻"
           label="Top Language"
           value={topLanguage || 'N/A'}
         />
         <StatCard
-          color="#EA4335"
+          color="#7c3aed"
           icon="⭐"
           label="Total Stars"
           value={totalStars.toLocaleString()}
         />
         <StatCard
-          color="#FBBC05"
+          color="#9d4edd"
           icon="🏆"
           label="Most Starred Repo"
           value={mostStarred ? `${mostStarred.name} (${mostStarred.stars}★)` : 'N/A'}
           link={mostStarred?.url}
         />
         <StatCard
-          color="#34A853"
+          color="#6d28d9"
           icon="🕒"
           label="Most Recently Updated"
           value={mostRecent ? mostRecent.name : 'N/A'}
