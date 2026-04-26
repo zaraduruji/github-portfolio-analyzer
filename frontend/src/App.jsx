@@ -46,6 +46,11 @@ function App() {
           <span style={{ color: '#4285F4' }}>u</span>
           <span style={{ color: '#EA4335' }}>b</span>
         </div>
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+          alt="GitHub"
+          className="hero-gh-logo"
+        />
         <h1 className="hero-title">Portfolio Analyzer</h1>
         <p className="hero-subtitle">Explore any GitHub profile with beautiful insights</p>
         <SearchBar
